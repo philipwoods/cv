@@ -1,0 +1,265 @@
+% arara: pdflatex: { options:  [ '-halt-on-error' ] }
+% arara: biber if exists(toFile('mypubs.bib')) && exists('bcf')
+% arara: pdflatex: { synctex: yes } if exists('toc') || exists('bbl')
+% arara: pdflatex: { synctex: yes } while (found('log', '(?<!rerunfilecheck.{15,20})Rerun'))
+% arara: clean: { extensions: [ log, out, toc, bbl, bcf, blg, run.xml ] }
+
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage[
+	url=false,
+	doi=false,
+	date=year,
+	isbn=false,
+	sorting=ydnt,
+	maxnames=10,
+	defernumbers=true,
+	style=nature
+]{biblatex}
+
+\addbibresource{mypubs.bib}
+
+%% Commands to format the highlighting of my name in bibliographies
+
+\renewcommand*{\mkbibnamegiven}[1]{%
+\ifitemannotation{highlight}
+{\textbf{#1}}
+{#1}}
+
+\renewcommand*{\mkbibnamefamily}[1]{%
+\ifitemannotation{highlight}
+{\textbf{#1}}
+{#1}}
+
+%% Define format for sections of the CV
+
+\newcommand{\cvtitle}[1]{%
+	{\Large \textbf{#1}} \hfill {\large \textsc{Curriculum Vitae}}
+	\hrule
+}
+
+\newcommand{\cvsection}[1]{%
+	{\large \textbf{#1\phantom{,}}}
+	\hrule
+}
+
+\setlength{\parindent}{0pt}
+
+\nocite{*}
+
+\begin{document}
+
+%% Heading
+\cvtitle{Philip Woods}
+\bigskip
+1200 E. California Blvd.	\hfill	Cell: (630) 723-7573\\
+Mail Code 100-23			\hfill	pwoods@caltech.edu\\
+Pasadena, CA 91125			\hfill	% website
+\bigskip
+
+%% Academic Positions
+% Postdocs, professorships, etc.
+
+%% Education
+\cvsection{Education}
+\bigskip
+
+\textsc{California Institute of Technology, Pasadena, CA}\\
+Ph.D. student, Geobiology		\hfill	2018 -- present\\
+% Thesis:
+Advisor: Victoria Orphan\\
+Committee: Victoria Orphan, Jared Leadbetter, Dianne Newman, Woody Fischer, Joe Parker
+
+\medskip
+
+\textsc{Harvey Mudd College, Claremont, CA}\\
+B.S., Joint Major in Chemistry and Biology	\hfill	May 2017\\
+Graduated with Distinction\\
+Thesis: \emph{The effects of ribosomal DNA copy number on lifespan, health, and dietary restriction.}\\
+Advisor: Jae Hur
+
+\bigskip
+
+%% Research Interests
+%\cvsection{Research Interests}
+%\medskip
+%
+%asdf
+%
+%\bigskip
+
+%% Fellowships, Honors, and Awards
+\cvsection{Fellowships, Honors, and Awards}
+\bigskip
+
+Benjamin M. Rosen Graduate Fellowship, \emph{California Institute of Technology}	\hfill	2018\\
+CEMI 1st Year Fellowship, \emph{California Institute of Technology}				\hfill	2018\\
+Mindlin Prize for Innovative Ideas in the Sciences, \emph{Harvey Mudd College}		\hfill	2017\\
+Best Senior Thesis in Biology, \emph{Harvey Mudd College}						\hfill	2017\\
+Departmental Honors in Biology, \emph{Harvey Mudd College}					\hfill	2017%\\
+%Dean's List, \emph{Harvey Mudd College}										\hfill	2012 -- 2013\\
+%Superior Academic Performance, \emph{Harvey Mudd College}					\hfill	2011
+
+\bigskip
+
+%% Research Experience
+\cvsection{Research Experience}
+\bigskip
+
+\textsc{California Institute of Technology}\\
+Advisor: Victoria Orphan	\hfill	2019 -- present
+\begin{itemize}[leftmargin=1.5em, nosep, label=$\vcenter{\hbox{\tiny\textbullet}}$]
+\item
+Built a comprehensive phylogeny of high-quality \emph{Methanomicrobiales} genomes.
+\item
+Used comparative genomics to identify distinctive genome features of the ANME-3 clade.
+\item
+Identified several key evolutionary processes in the evolution of ANME from methanogens.
+\end{itemize}
+
+\medskip
+
+\textsc{California Institute of Technology}\\
+Advisor: Jared Leadbetter	\hfill	2019 -- 2021
+\begin{itemize}[leftmargin=1.5em, nosep, label=$\vcenter{\hbox{\tiny\textbullet}}$]
+\item
+Investigated the manganese-dependent growth potential of a novel \emph{Methylobacterium} isolate.
+\item
+Established growth yields and growth kinetics for the \emph{Methylobacterium} under several conditions.
+\item
+Assayed manganese oxidation in microbial cultures using spectrophotometry.
+\end{itemize}
+
+\medskip
+
+\textsc{Northwestern University Center for Connected Learning and Computer-Based Modeling}\\
+Advisors: Uri Wilensky and Hillary Swanson	\hfill	2017 -- 2018
+\begin{itemize}[leftmargin=1.5em, nosep, label=$\vcenter{\hbox{\tiny\textbullet}}$]
+\item
+Developed multiple NetLogo computational models of CRISPR-Cas in bacterial cells and communities.
+\item
+Developed a NetLogo computational model of the evolution of anisogamy.
+\item
+Designed experiments using this model to address questions in theoretical biology literature.
+\item
+Developed and implemented high school science curricula to teach computational thinking.
+\item
+Designed assessments to evaluate the efficacy of these curricula.
+\end{itemize}
+
+\medskip
+
+\textsc{Harvey Mudd College Biology Department}\\
+Advisor: Jae Hur	\hfill	2016 -- 2017
+\begin{itemize}[leftmargin=1.5em, nosep, label=$\vcenter{\hbox{\tiny\textbullet}}$]
+\item
+Designed and executed a research agenda independently as a senior thesis project.
+\item
+Investigated the molecular mechanisms behind dietary restriction-based lifespan extension.
+\item
+Performed lifespan, dietary restriction, stress, and qPCR assays on Drosophila.
+\end{itemize}
+
+\medskip
+
+\textsc{Pomona College Biology Department}\\
+Advisor: Melissa Petreaca	\hfill	2014
+\begin{itemize}[leftmargin=1.5em, nosep, label=$\vcenter{\hbox{\tiny\textbullet}}$]
+\item
+Studied the role of the LIGHT protein in mouse neutrophil degranulation and NETosis.
+\item
+Analyzed NET formation using ELISA and fluorescence microscopy.
+\end{itemize}
+
+%\medskip
+\pagebreak
+
+\textsc{Harvey Mudd College Chemistry Department}\\
+Advisor: Katherine	van Heuvelen		\hfill	2013
+\begin{itemize}[leftmargin=1.5em, nosep, label=$\vcenter{\hbox{\tiny\textbullet}}$]
+\item
+Synthesized cyclam derived ligands for nickel complexes to model cofactor F430.
+\item
+Characterized these with Gaussian DFT calculations and UV-vis, NMR, and IR spectroscopy.
+\item
+Tested the model complexes for methane oxidation potential using spectrophotometry.
+\end{itemize}
+
+\bigskip
+
+%% Teaching and Mentoring Experience
+\cvsection{Teaching Experience}
+\bigskip
+
+{\large \textsc{California Institute of Technology}}
+\medskip
+
+\textsc{Certificate of Practice in University Teaching} \hfill 2019 -- present
+\begin{itemize}[leftmargin=1.5em, nosep, label=$\vcenter{\hbox{\tiny\textbullet}}$]
+\item
+Received formal instruction in pedagogy and teaching practices.
+\item
+Apply these practices in a series of teaching experiences.
+\item
+Refine teaching practice based on feedback from students and teaching specialists.
+\end{itemize}
+
+\medskip
+
+\textsc{Bi/Ge/ESE 105: Evolution} \hfill Winter 2020\\
+Instructors: Victoria Orphan and Rob Phillips
+\begin{itemize}[leftmargin=1.5em, nosep, label=$\vcenter{\hbox{\tiny\textbullet}}$]
+\item
+Developed and implemented classroom activities covering phylogeny, population genetics,
+speciation, and coevolution.
+\item
+Helped facilitate weekly laboratory exercises on concepts and techniques relevant to evolution.
+\end{itemize}
+
+\bigskip
+
+%% Supervised Students
+
+%% Service & Outreach
+% Conference organization, grant reviewing, journal referee, committees, etc.
+\cvsection{Service \& Outreach}
+\bigskip
+
+{\large \textsc{California Institute of Technology}}
+\medskip
+
+Co-founder \& treasurer of the local chapter of the American Society for Microbiology \hfill 2022 -- present
+
+\bigskip
+
+%% Journal Publications
+\cvsection{Peer Reviewed Publications}
+
+\printbibliography[type=article,heading=none,resetnumbers=true]
+
+%% Conference Submissions
+\cvsection{Conference Submissions}
+
+\printbibliography[type=inproceedings,heading=none,resetnumbers=true]
+
+%% Professional Associations
+\cvsection{Professional Associations}
+\bigskip
+
+American Society for Microbiology, Member \hfill 2022 -- present\\
+Phi Lambda Upsilon, Member	\hfill	2017 -- present
+
+\bigskip
+
+%% Other Skills
+\cvsection{Other Skills}
+\bigskip
+
+Proficient in building agent-based models.\\
+Proficient with Python, NetLogo, Bash scripting, Anvi'o, and Matlab.\\
+Experience with Javascript, C++,  Java, Igor Pro, and Racket.\\
+Working proficiency in Portuguese.
+
+\end{document}
